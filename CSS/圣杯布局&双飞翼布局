@@ -1,0 +1,141 @@
+/*圣杯布局1*/
+/**************************************************
+/*三者同时设置float:left;position：relative；后面会用到
+/*middle宽度设置为100%用于自适应
+/*left的margin-left设置为-100%用于将其移动到middle的左边
+/*rignt的margin-left设置为-right-width用于将其移动到middle的右边
+/*但是此时middle的部分内容被left和ringt覆盖了，需要设置container的padding或者margin将被覆盖的内容还原
+/*可是这样left和right也跟着往中间挤
+/*设置left的left为-left-width，right的right为-right-width才真正的还原
+********************************************************/
+        .header{
+            width: 100%;
+            height: 20px;
+            background-color: #987654;
+        }
+        .banner{
+            width: 100%;
+            height: 30px;
+            background-color: #ccc222;
+        }
+        .container{
+            overflow: hidden;
+            height: 500px;
+            padding: 0 220px 0 200px;
+            margin: 0 30px;
+        }
+        .left,.right,.middle{
+            position: relative;
+            float: left;
+        }
+        .middle{
+            width: 100%;
+            height: 500px;
+            background-color: blue;
+        }
+        .left{
+            width: 200px;
+            height: 500px;
+            margin-left: -100%;
+            left: -200px;
+            background-color: #556677;
+        }
+        .right{
+            width: 220px;
+            margin-left: -220px;
+            height: 500px;
+            right: -220px;
+            background-color: red;
+        }
+        .footer{
+            clear: both;
+            /* width: 100%;
+            height: 40px; */
+            background-color: #777222;
+        }
+/*圣杯布局2*/
+/*主要思想就是把middle的box-sizing设置为border-box,左右padding设置为left和right的宽度*/
+        .container{
+            width: 100%;
+            max-width: 1000px;
+            height: 800px;
+            margin: 0 auto;
+        }
+        .middle{
+            width: 100%;
+            height: 800px;
+            box-sizing: border-box;
+            padding: 0 250px 0 220px;
+            float: left;
+            position: relative;
+            background-color: antiquewhite;
+        }
+        .left{
+            width: 220px;
+            height: 800px;
+            margin-left: -100%;
+            float: left;
+            position: relative;
+            /* left: -220px; */
+            background-color: aqua;
+        }
+        .right{
+            width:250px;
+            height: 800px;
+            float: left;
+            position: relative;
+            margin-left: -250px;
+            /* left: -250px; */
+            background-color: red;
+        }
+        .footer{
+            /* clear: both; */
+            width: 100%;
+            height: 40px;
+            background-color: #777222;
+        }       
+/*双飞翼布局*/
+/****************************************************************
+/*与圣杯布局相比，双飞翼布局取消了相对定位，在中间的div里面再嵌入一个div，
+/*然后通过设置嵌入的div的左右margin来为left和right腾出位置
+****************************************************************/
+        .container{
+            overflow: hidden;
+            height: 500px;
+            /* padding: 0 220px 0 200px; */
+            margin: 0 30px;
+        }
+        .left,.right,.middle{
+            /* position: relative; */
+            float: left;
+        }
+        .middle{
+            width: 100%;
+            height: 500px;
+            
+        }
+        .inner{
+            background-color: blue;
+            margin-right: 220px;
+            margin-left: 200px;
+        }
+        .left{
+            width: 200px;
+            height: 500px;
+            margin-left: -100%;
+            /* left: -200px; */
+            background-color: #556677;
+        }
+        .right{
+            width: 220px;
+            margin-left: -220px;
+            height: 500px;
+            /* right: -220px; */
+            background-color: red;
+        }
+        .footer{
+            clear: both;
+            /* width: 100%;
+            height: 40px; */
+            background-color: #777222;
+        }
