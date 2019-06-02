@@ -1,0 +1,2 @@
+offsetWidth返回的是width+padding+border的整数值
+width返回的是带单位的字符串
